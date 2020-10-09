@@ -1,0 +1,9 @@
+def common_chars(arr)
+    shortest_string = arr.min_by(&:length)
+    max_len = shortest_string.length
+    res = []
+    shortest_string.chars do |ch|
+        (arr-[shortest_string]).all? {|a| a.include?(ch)} ? res << ch : nil
+    end
+    p res
+end
